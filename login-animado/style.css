@@ -1,0 +1,94 @@
+/* 4.1 Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 4.2 Centralizar tudo na tela */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1c65d3;
+    font-family: Arial, sans-serif;
+}
+
+/* 4.3 Caixinha branca do formulário */
+.form-container {
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 4.4 Organizar campos em coluna */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* 4.5 - Estado inicial invisível */
+form input,
+#entrar {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+
+/* 4.6 Estilo dos campos de digitação */
+input[type="text"],
+input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* 4.7 Efeito ao clicar no campo (foco) */
+input[type="text"]:focus,
+input[type="password"]:focus {
+    transform: scale(1.05);
+    border-color: #6C63FF;
+    outline: none;
+}
+
+/* 4.8 Estilo do botão */
+button {
+    position: relative;
+    padding: 10px 16px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #6C63FF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* 4.9 Efeito Spinner (Carregando) no botão */
+button.loading::after {
+    content: "";
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 14px;
+    height: 14px;
+    border: 2px solid white;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: girar 0.8s linear infinite;
+}
+
+@keyframes girar {
+    from {
+        transform: translateY(-50%) rotate(0deg);
+    }
+    to {
+        transform: translateY(-50%) rotate(360deg);
+    }
+}
